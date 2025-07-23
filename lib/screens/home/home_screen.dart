@@ -114,16 +114,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 validator: (value) {
-                  if ( value == null || value.isEmpty ) {
+                  if (value == null || value.isEmpty) {
                     return "please enter a valid email";
-                   }
-                  if ( !value.contains("@") ) {
-                     return "you are missing @ enter a valid email";
-                   }
-                  if ( !value.contains("gmail") ) {
-                     return "you are missing gmail word";
-                   }
-                   return null;
+                  }
+                  if (!value.contains("@")) {
+                    return "you are missing @ enter a valid email";
+                  }
+                  if (!value.contains("gmail")) {
+                    return "you are missing gmail word";
+                  }
+                  return null;
                 },
               ),
             ),
@@ -132,9 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: TextFormField(
                 obscureText: obscureText,
                 obscuringCharacter: "●",
-                style: TextStyle(
-                  color: Colors.black
-                ),
+                style: TextStyle(color: Colors.black),
                 controller: password,
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
@@ -147,7 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       });
                     },
 
-                    icon: visibiltyChanger == true ? visibiltyOffIcon : visibiltyOnIcon,
+                    icon: visibiltyChanger == true
+                        ? visibiltyOffIcon
+                        : visibiltyOnIcon,
                   ),
                   fillColor: Colors.white60,
                   filled: true,
@@ -174,11 +174,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter a valid password number";
-                  }
-                  return null;
+                validator: (password) {
+                  if (password == null || password.isEmpty) {
+                     return "Please enter a valid password number";
+                   }
+                   return null;
                 },
               ),
             ),
