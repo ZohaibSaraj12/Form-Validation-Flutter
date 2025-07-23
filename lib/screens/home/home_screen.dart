@@ -114,20 +114,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please enter a valid phone number";
-                  }
-                  if (!value.contains("@")) {
-                    return "you are missing @ enter a valid email";
-                  }
-                  if (!value.contains("gmail")) {
-                    return "you are missing gmail word";
-                  }
-                  return null;
+                  if ( value == null || value.isEmpty ) {
+                    return "please enter a valid email";
+                   }
+                  if ( !value.contains("@") ) {
+                     return "you are missing @ enter a valid email";
+                   }
+                  if ( !value.contains("gmail") ) {
+                     return "you are missing gmail word";
+                   }
+                   return null;
                 },
               ),
             ),
-            
+
             SizedBox(height: 20.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
