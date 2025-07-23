@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_validation_flutter/screens/home/functions.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -67,18 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "please enter a valid password";
-                  }
-                  if (!value.contains("+")) {
-                    return "please enter country code with (+)";
-                  }
-                  if (value.length < 13) {
-                    return "please enter 13 digits format (+92XXXXXXXXXX)";
-                  }
-                  return null;
-                },
+                validator: validatePhone,
               ),
             ),
             Padding(
@@ -113,18 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "please enter a valid email";
-                  }
-                  if (!value.contains("@")) {
-                    return "you are missing @ enter a valid email";
-                  }
-                  if (!value.contains("gmail")) {
-                    return "you are missing gmail word";
-                  }
-                  return null;
-                },
+               validator: validateEmail,
               ),
             ),
             Padding(
@@ -174,12 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
 
-                validator: (password) {
-                  if (password == null || password.isEmpty) {
-                     return "Please enter a valid password number";
-                   }
-                   return null;
-                },
+                validator: validatePassword,
               ),
             ),
             SizedBox(height: 20.0),
