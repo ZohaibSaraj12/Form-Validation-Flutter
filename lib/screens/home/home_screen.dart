@@ -81,7 +81,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: TextFormField(
+                controller: email,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.email_outlined),
+                  fillColor: Colors.white60,
+                  filled: true,
+                  hintText: "Enter Your Email",
+                  labelText: "Email",
+                  labelStyle: TextStyle(color: Colors.black),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide(color: Colors.green, width: 3.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    borderSide: BorderSide(color: Colors.green, width: 3.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 3.0),
 
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 3.0),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
+
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "Please enter a valid phone number";
+                  }
+                  if (!value.contains("@")) {
+                    return "you are missing @ enter a valid email";
+                  }
+                  if (!value.contains("gmail")) {
+                    return "you are missing gmail word";
+                  }
+                  return null;
+                },
+              ),
+            ),
+            
             SizedBox(height: 20.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
