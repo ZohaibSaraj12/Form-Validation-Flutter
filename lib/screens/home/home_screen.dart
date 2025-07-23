@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -69,18 +68,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 validator: (value) {
-                  if (value == null || value.isEmpty || !value.contains("+")) {
-                    return "Please enter a valid phone number";
+                  if (value == null || value.isEmpty) {
+                    return "please enter a valid password";
+                  }
+                  if (!value.contains("+")) {
+                    return "please enter country code with (+)";
                   }
                   if (value.length < 13) {
-                    return "digits are less than 13";
+                    return "please enter 13 digits format (+92XXXXXXXXXX)";
                   }
                   return null;
                 },
               ),
             ),
 
-            
             SizedBox(height: 20.0),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
